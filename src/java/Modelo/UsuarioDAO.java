@@ -15,20 +15,19 @@ public class UsuarioDAO {
     public Usuario Validar(String User, String contra) {
 
         Usuario u = new Usuario();
-        String sql = "SELECT * FROM  usuarios WHERE  usuario =? and contraseña=?";
+        String sql = "select * from usuarios where usuario ='"+User+"' and contraseña='"+contra+"'";
         try {
             con = cn.conexion();
             ps = con.prepareStatement(sql);
-            ps.setString(1, User);
-            ps.setString(2, contra);
-            rs = ps.executeQuery();
+         
+          rs = ps.executeQuery();
             while (rs.next()) {
-                u.setId(rs.getInt("id"));
-                u.setUsuario(rs.getString("usuario"));
-                u.setContraseña(rs.getString("contraseña"));
-                u.setContraseña(rs.getString("nombre"));
-                u.setContraseña(rs.getString("apellido"));
-
+                u.setId(rs.getInt(1));
+                u.setUsuario(rs.getString(11));
+                u.setContraseña(rs.getString(10));
+                u.setNombre(rs.getString(2));
+                u.setApellido(rs.getString(3));
+                
             }
 
         } catch (Exception e) {

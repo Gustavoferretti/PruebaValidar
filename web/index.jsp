@@ -17,7 +17,7 @@
             <div class="card col-sm-10">
                 
                 <div class="card-body ">
-                    <form  class=" form-sign" action="Validar" metodo="POST">
+                    <form  class=" form-sign" action="Validar" method="GET">
                         <div class="form-group text center ">
                             <label> iniciar sesion </label>  
                             
@@ -34,7 +34,7 @@
                          </div>
                         
                         
-                        <input type="submit" name="accion " value="ingresar" class="btn btn-primary btn-block">
+                        <input type="submit" name="accion"  value="ingresar" class="btn btn-primary btn-block">
                     </form>
                     
                     

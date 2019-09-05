@@ -1,6 +1,8 @@
 
 package Controlador;
 
+import Modelo.Usuario;
+import Modelo.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -10,21 +12,31 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class Controlador extends HttpServlet {
+    Usuario us=new Usuario();
+    UsuarioDAO uDAO =new UsuarioDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String accion = request.getParameter("accion");
+      
+      String accion = request.getParameter("accion");
+        
+        
 
         switch (accion) {
             case "Principal":
+                 
                 request.getRequestDispatcher("MenuProf.jsp").forward(request, response);
+                break;
+                
+               case "Agragar":
+                request.getRequestDispatcher("loguin.jsp").forward(request, response);
                 break;
             default:
                 throw new AssertionError();
         }
     }
 
-}
+
 // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 /**
  * Handles the HTTP <code>GET</code> method.
@@ -37,7 +49,7 @@ public class Controlador extends HttpServlet {
 @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
 
